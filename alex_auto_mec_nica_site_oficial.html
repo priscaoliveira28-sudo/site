@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Alex Auto Mecânica | Qualidade, Confiança e Experiência para o seu Veículo</title>
+    <meta name="description" content="Alex Auto Mecânica em Tatuí - SP. Serviços automotivos especializados: troca de óleo, revisão completa, suspensão, freios, injeção eletrônica, diagnóstico computadorizado e manutenção de motor.">
+    <meta name="keywords" content="oficina mecânica Tatuí, Alex Auto Mecânica, mecânica automotiva Tatuí SP, troca de óleo, revisão automotiva, suspensão, freios, injeção eletrônica">
+    <meta name="author" content="Alex Auto Mecânica">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alex Auto Mecânica | Seu carro em boas mãos">
+    <meta property="og:description" content="Qualidade, Confiança e Experiência para o seu Veículo. Mecânica especializada em Tatuí - SP com atendimento rápido e de qualidade.">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#111827',
+                            gray: '#1f2937',
+                            red: '#dc2626',
+                            redHover: '#b91c1c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Customizados e Animações -->
+    <style>
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        /* Efeito de revelação suave ao rolar a página */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Atrasos escalonados para cards */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Gradiente do Banner Principal */
+        .hero-overlay {
+            background: linear-gradient(
+                90deg,
+                rgba(10, 10, 10, 0.94) 0%,
+                rgba(17, 24, 39, 0.85) 55%,
+                rgba(10, 10, 10, 0.65) 100%
+            );
+        }
+
+        /* Pulso suave no botão flutuante do WhatsApp */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 14px rgba(34, 197, 94, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+        .whatsapp-pulse {
+            animation: pulse-ring 2.2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-gray-100 font-sans antialiased selection:bg-red-600 selection:text-white overflow-x-hidden">
+
+    <!-- ==================== 1. CABEÇALHO (HEADER) ==================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-gray-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-lg shadow-red-600/20 group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-wrench text-white text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-tight text-white leading-none">
+                            ALEX <span class="text-red-600">AUTO</span>
+                        </span>
+                        <span class="text-[11px] font-semibold tracking-[0.22em] text-gray-400 uppercase mt-0.5">
+                            Mecânica Especializada
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Navegação Principal">
+                    <a href="#inicio" class="text-sm font-medium text-gray-300 hover:text-red-500 transition-colors duration-200 py-2">Início</a>
+                    <a href="#sobre" class="text-sm font-medium text-gray-300 hover:text-red-500 transition-colors duration-200 py-2">Sobre Nós</a>
+                    <a href="#servicos" class="text-sm font-medium text-gray-300 hover:text-red-500 transition-colors duration-200 py-2">Serviços</a>
+                    <a href="#contato" class="text-sm font-medium text-gray-300 hover:text-red-500 transition-colors duration-200 py-2">Contato</a>
+                </nav>
+
+                <!-- Botão CTA Desktop -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-semibold shadow-lg shadow-red-600/25 hover:shadow-red-600/40 transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Orçamento</span>
+                    </a>
+                </div>
+
+                <!-- Botão Menu Mobile (Hambúrguer) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" 
+                            type="button" 
+                            aria-label="Abrir menu de navegação"
+                            aria-expanded="false"
+                            class="p-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none transition-colors">
+                        <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#111827] border-b border-gray-800 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+            <a href="#inicio" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-house w-6 text-red-500"></i> Início
+            </a>
+            <a href="#sobre" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-shield-halved w-6 text-red-500"></i> Sobre Nós
+            </a>
+            <a href="#servicos" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-gears w-6 text-red-500"></i> Serviços
+            </a>
+            <a href="#contato" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-gray-800 hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-location-dot w-6 text-red-500"></i> Contato
+            </a>
+            <div class="pt-3 border-t border-gray-800 flex flex-col gap-2.5">
+                <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Solicitar Orçamento</span>
+                </a>
+                <a href="https://instagram.com/alexautomecanica2018" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 font-medium transition-colors">
+                    <i class="fa-brands fa-instagram text-lg text-red-500"></i>
+                    <span>Siga-nos no Instagram</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== 2. BANNER PRINCIPAL (HERO) ==================== -->
+        <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <!-- Imagem de Fundo da Oficina / Manutenção -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80" 
+                     alt="Mecânico realizando manutenção automotiva na Alex Auto Mecânica"
+                     onerror="this.src='https://placehold.co/1920x1080/111827/dc2626?text=Alex+Auto+Mecanica'"
+                     class="w-full h-full object-cover object-center scale-105">
+                <div class="absolute inset-0 hero-overlay"></div>
+                <!-- Detalhe sutil vermelho no canto inferior -->
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
+            </div>
+
+            <!-- Conteúdo do Banner -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full">
+                <div class="max-w-3xl">
+                    <!-- Badge com o Slogan Oficial -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-red-600/15 border border-red-500/40 backdrop-blur-sm mb-6 reveal active">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-xs sm:text-sm font-semibold text-red-400 tracking-wide">
+                            Qualidade, Confiança e Experiência para o seu Veículo.
+                        </span>
+                    </div>
+
+                    <!-- Título Principal (H1) -->
+                    <h1 class="font-heading font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-6 reveal active delay-100">
+                        Seu carro em <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">boas mãos</span>
+                    </h1>
+
+                    <!-- Subtítulo -->
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray-300 font-normal leading-relaxed mb-10 max-w-2xl reveal active delay-200">
+                        Mecânica especializada com atendimento rápido e de qualidade. Diagnóstico preciso e manutenção completa para você rodar com total segurança em Tatuí e região.
+                    </p>
+
+                    <!-- Botões de Ação -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 reveal active delay-300">
+                        <!-- Botão WhatsApp -->
+                        <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-base sm:text-lg shadow-xl shadow-red-600/30 hover:shadow-red-600/50 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Solicitar Orçamento</span>
+                        </a>
+
+                        <!-- Botão Instagram -->
+                        <a href="https://instagram.com/alexautomecanica2018" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gray-900/90 hover:bg-gray-800 text-white border border-gray-700 hover:border-red-500/60 font-semibold text-base sm:text-lg backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-instagram text-2xl text-red-500"></i>
+                            <span>Siga-nos</span>
+                        </a>
+                    </div>
+
+                    <!-- Indicadores Rápidos de Credibilidade -->
+                    <div class="mt-12 pt-8 border-t border-gray-800/80 grid grid-cols-2 sm:grid-cols-3 gap-6 reveal active delay-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800/90 border border-gray-700 flex items-center justify-center text-red-500 shrink-0">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Serviço Garantido</p>
+                                <p class="text-xs text-gray-400">Compromisso real</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800/90 border border-gray-700 flex items-center justify-center text-red-500 shrink-0">
+                                <i class="fa-solid fa-laptop-medical"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Alta Tecnologia</p>
+                                <p class="text-xs text-gray-400">Scanner moderno</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 col-span-2 sm:col-span-1">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800/90 border border-gray-700 flex items-center justify-center text-red-500 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Tatuí - SP</p>
+                                <p class="text-xs text-gray-400">Atendimento local ágil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. SOBRE NÓS ==================== -->
+        <section id="sobre" class="py-20 md:py-28 bg-[#111827] relative border-b border-gray-800/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Coluna da Imagem -->
+                    <div class="lg:col-span-6 reveal">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-800 group">
+                            <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Equipe e estrutura da Alex Auto Mecânica em Tatuí"
+                                 onerror="this.src='https://placehold.co/800x600/1f2937/ffffff?text=Alex+Auto+Mecanica'"
+                                 class="w-full h-[360px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            
+                            <!-- Selo Flutuante sobre a imagem -->
+                            <div class="absolute bottom-5 left-5 right-5 sm:right-auto bg-[#0a0a0a]/95 backdrop-blur-md border border-gray-800 p-4 rounded-xl flex items-center gap-4 shadow-xl">
+                                <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white shrink-0">
+                                    <i class="fa-solid fa-car-wrench text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-base">Alex Auto Mecânica</p>
+                                    <p class="text-gray-400 text-xs sm:text-sm">Transparência e excelência em cada reparo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-6 reveal delay-100">
+                        <div class="inline-flex items-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider mb-3">
+                            <span class="w-8 h-0.5 bg-red-600"></span>
+                            <span>Sobre Nós</span>
+                        </div>
+                        
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white leading-tight mb-6">
+                            Compromisso com a <span class="text-red-500">segurança</span> e o desempenho do seu carro
+                        </h2>
+
+                        <!-- Texto Exato Solicitado -->
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 bg-[#1f2937]/50 p-6 rounded-2xl border-l-4 border-red-600">
+                            "A Alex Auto Mecânica oferece serviços automotivos com qualidade, transparência e compromisso. Nossa equipe é especializada em diagnósticos, manutenção preventiva e corretiva para garantir a segurança e o desempenho do seu veículo."
+                        </p>
+
+                        <!-- Pilares de Confiança -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-[#0a0a0a]/60 border border-gray-800">
+                                <div class="w-9 h-9 rounded-lg bg-red-600/15 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white text-sm sm:text-base">Atendimento Transparente</h3>
+                                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Orçamento claro e explicação detalhada antes de qualquer serviço.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-[#0a0a0a]/60 border border-gray-800">
+                                <div class="w-9 h-9 rounded-lg bg-red-600/15 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-check-double"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white text-sm sm:text-base">Peças de Qualidade</h3>
+                                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Trabalhamos com componentes confiáveis e procedência garantida.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#servicos" class="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-bold text-base group transition-colors">
+                            <span>Conheça nossos serviços especializados</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. SERVIÇOS ==================== -->
+        <section id="servicos" class="py-20 md:py-28 bg-[#0a0a0a] relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <div class="inline-flex items-center justify-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider mb-3">
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                        <span>Nossas Especialidades</span>
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-white mb-4">
+                        Serviços Automotivos <span class="text-red-600">Completos</span>
+                    </h2>
+                    <p class="text-gray-400 text-base sm:text-lg">
+                        Soluções completas em manutenção preventiva e corretiva para veículos nacionais e importados com agilidade e precisão.
+                    </p>
+                </div>
+
+                <!-- Grid de 9 Cartões de Serviços (3 colunas desktop, 2 tablet, 1 mobile) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- 1. Troca de óleo -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-oil-can text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Troca de óleo
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Substituição de óleo lubrificante e filtros (óleo, ar, combustível e cabine) seguindo rigorosamente as especificações da montadora.
+                        </p>
+                    </article>
+
+                    <!-- 2. Revisão completa -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-100">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-clipboard-check text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Revisão completa
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Check-up preventivo completo de todos os sistemas essenciais do veículo para evitar imprevistos e garantir viagens tranquilas.
+                        </p>
+                    </article>
+
+                    <!-- 3. Suspensão -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-200">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-car-burst text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Suspensão
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Inspeção e troca de amortecedores, molas, pivôs, buchas e bandejas para restaurar a estabilidade e o conforto ao dirigir.
+                        </p>
+                    </article>
+
+                    <!-- 4. Freios -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-compact-disc text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Freios
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Manutenção em pastilhas, discos, lonas, tambores, fluido de freio e sistema ABS para máxima segurança nas frenagens.
+                        </p>
+                    </article>
+
+                    <!-- 5. Injeção eletrônica -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-100">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-microchip text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Injeção eletrônica
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Limpeza de bicos injetores, corpo de borboleta, testes de sensores e atuadores para otimizar o consumo e o rendimento.
+                        </p>
+                    </article>
+
+                    <!-- 6. Alinhamento e balanceamento -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-200">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-dharmachakra text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Alinhamento e balanceamento
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Ajuste preciso da geometria da direção e equilíbrio das rodas, evitando trepidações e desgaste irregular dos pneus.
+                        </p>
+                    </article>
+
+                    <!-- 7. Troca de bateria -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-car-battery text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Troca de bateria
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Teste de carga, alternador e substituição rápida por baterias de alta durabilidade com preservação dos sistemas eletrônicos.
+                        </p>
+                    </article>
+
+                    <!-- 8. Diagnóstico computadorizado -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-100">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-laptop-code text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Diagnóstico computadorizado
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Leitura eletrônica avançada via scanner automotivo para identificar falhas com rapidez, precisão e sem troca desnecessária de peças.
+                        </p>
+                    </article>
+
+                    <!-- 9. Manutenção de motor -->
+                    <article class="bg-[#111827] rounded-2xl p-7 border border-gray-800 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1.5 shadow-lg hover:shadow-red-600/10 group reveal delay-200">
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 border border-red-600/20 group-hover:bg-red-600 flex items-center justify-center text-red-500 group-hover:text-white transition-colors duration-300 mb-6">
+                            <i class="fa-solid fa-gears text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-red-400 transition-colors">
+                            Manutenção de motor
+                        </h3>
+                        <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                            Troca de correia dentada, sistema de arrefecimento, vedação, cabeçote e reparos completos para máxima vida útil do motor.
+                        </p>
+                    </article>
+
+                </div>
+
+                <!-- Chamada para Orçamento abaixo dos serviços -->
+                <div class="mt-14 text-center reveal">
+                    <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Vi%20os%20servi%C3%A7os%20no%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-base shadow-lg shadow-red-600/25 hover:shadow-red-600/40 transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Agendar Avaliação pelo WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. DIFERENCIAIS ==================== -->
+        <section id="diferenciais" class="py-20 bg-gradient-to-b from-[#111827] to-[#0a0a0a] border-y border-gray-800/80 relative overflow-hidden">
+            <!-- Elemento decorativo sutil -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                    <div class="inline-flex items-center justify-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider mb-3">
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                        <span>Por que nos escolher?</span>
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+                        Nossos <span class="text-red-500">Diferenciais</span>
+                    </h2>
+                </div>
+
+                <!-- Grid Responsivo com os 5 Diferenciais -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    
+                    <!-- Diferencial 1 -->
+                    <div class="bg-[#1f2937]/60 backdrop-blur-sm border border-gray-800 hover:border-red-500/60 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 reveal">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-user-gear text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base sm:text-lg mb-2">
+                            Profissionais qualificados
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Equipe experiente e em constante atualização técnica.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 2 -->
+                    <div class="bg-[#1f2937]/60 backdrop-blur-sm border border-gray-800 hover:border-red-500/60 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 reveal delay-100">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-bolt text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base sm:text-lg mb-2">
+                            Atendimento rápido
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Agilidade no diagnóstico e entrega pontual do seu veículo.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 3 -->
+                    <div class="bg-[#1f2937]/60 backdrop-blur-sm border border-gray-800 hover:border-red-500/60 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 reveal delay-200">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-screwdriver-wrench text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base sm:text-lg mb-2">
+                            Equipamentos modernos
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Ferramentas e scanners de última geração para precisão total.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 4 -->
+                    <div class="bg-[#1f2937]/60 backdrop-blur-sm border border-gray-800 hover:border-red-500/60 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 reveal delay-300">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-tags text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base sm:text-lg mb-2">
+                            Preços competitivos
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Valores justos e excelente custo-benefício sem surpresas.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 5 -->
+                    <div class="bg-[#1f2937]/60 backdrop-blur-sm border border-gray-800 hover:border-red-500/60 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1 reveal delay-300">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-shield-check text-2xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base sm:text-lg mb-2">
+                            Garantia dos serviços
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Segurança e respaldo total em toda mão de obra executada.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 6. CONTATO ==================== -->
+        <section id="contato" class="py-20 md:py-28 bg-[#0a0a0a]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <div class="inline-flex items-center justify-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider mb-3">
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                        <span>Fale Conosco</span>
+                        <span class="w-6 h-0.5 bg-red-600"></span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-white mb-4">
+                        Onde Estamos & <span class="text-red-600">Contato</span>
+                    </h2>
+                    <p class="text-gray-400 text-base sm:text-lg">
+                        Entre em contato pelo WhatsApp para agendar seu horário ou venha nos fazer uma visita em Tatuí - SP.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+                    
+                    <!-- Informações de Contato (Coluna Esquerda) -->
+                    <div class="lg:col-span-5 flex flex-col justify-between space-y-5 reveal">
+                        
+                        <!-- Card Endereço -->
+                        <div class="bg-[#111827] border border-gray-800 rounded-2xl p-6 flex items-start gap-4 hover:border-red-600/50 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/15 text-red-500 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-lg">Endereço da Oficina</h3>
+                                <p class="text-gray-300 text-sm sm:text-base mt-1">
+                                    Região Central / Jardim Paulista<br>
+                                    Tatuí - SP, CEP 18270-000
+                                </p>
+                                <span class="inline-block text-xs text-gray-500 mt-1.5">
+                                    * Consulte a localização exata pelo WhatsApp
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Telefone / WhatsApp -->
+                        <div class="bg-[#111827] border border-gray-800 rounded-2xl p-6 flex items-start gap-4 hover:border-red-600/50 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-green-600/15 text-green-500 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-lg">Telefone / WhatsApp</h3>
+                                <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 text-lg sm:text-xl font-bold text-white hover:text-green-400 transition-colors mt-1">
+                                    <span>(15) 99783-1983</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400"></i>
+                                </a>
+                                <p class="text-gray-400 text-xs sm:text-sm mt-1">
+                                    Clique no número para iniciar uma conversa rápida
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card Horário de Atendimento -->
+                        <div class="bg-[#111827] border border-gray-800 rounded-2xl p-6 flex items-start gap-4 hover:border-red-600/50 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/15 text-red-500 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-lg">Horário de Atendimento</h3>
+                                <ul class="text-gray-300 text-sm sm:text-base mt-1.5 space-y-1">
+                                    <li class="flex items-center justify-between gap-4">
+                                        <span class="text-gray-400">Segunda a Sexta:</span>
+                                        <span class="font-semibold text-white">08h00 às 18h00</span>
+                                    </li>
+                                    <li class="flex items-center justify-between gap-4">
+                                        <span class="text-gray-400">Sábado:</span>
+                                        <span class="font-semibold text-white">08h00 às 12h00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Card Instagram -->
+                        <a href="https://instagram.com/alexautomecanica2018" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="bg-gradient-to-r from-[#111827] to-[#1f2937] border border-gray-800 hover:border-red-500 rounded-2xl p-5 flex items-center justify-between group transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-xl bg-red-600/15 text-red-500 group-hover:bg-red-600 group-hover:text-white flex items-center justify-center transition-colors">
+                                    <i class="fa-brands fa-instagram text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white text-sm sm:text-base">@alexautomecanica2018</p>
+                                    <p class="text-xs text-gray-400">Acompanhe nosso dia a dia no Instagram</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                        </a>
+
+                    </div>
+
+                    <!-- Mapa Incorporado do Google Maps (Coluna Direita) -->
+                    <div class="lg:col-span-7 reveal delay-100">
+                        <div class="w-full h-full min-h-[380px] sm:min-h-[450px] rounded-2xl overflow-hidden border border-gray-800 shadow-2xl bg-[#111827] relative">
+                            <iframe 
+                                title="Localização Alex Auto Mecânica em Tatuí - SP"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58607.56734696069!2d-47.88605875!3d-23.35302865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5d8d0250a4c8d%3A0x8f8a4b0b0c1d2e3f!2sTatu%C3%AD%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                                class="w-full h-full border-0 filter contrast-105"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== 7. RODAPÉ (FOOTER) ==================== -->
+    <footer class="bg-[#070707] border-t border-gray-800/90 pt-14 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-800/80">
+                
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <a href="#inicio" class="inline-flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                            <i class="fa-solid fa-wrench text-white text-lg"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-xl text-white">
+                            ALEX <span class="text-red-600">AUTO</span> MECÂNICA
+                        </span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Qualidade, Confiança e Experiência para o seu Veículo. Mecânica especializada em Tatuí - SP.
+                    </p>
+                </div>
+
+                <!-- Coluna 2: Links Rápidos -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">
+                        Navegação
+                    </h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#inicio" class="hover:text-red-500 transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-red-500 transition-colors">Sobre Nós</a></li>
+                        <li><a href="#servicos" class="hover:text-red-500 transition-colors">Serviços</a></li>
+                        <li><a href="#contato" class="hover:text-red-500 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Redes Sociais -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">
+                        Conecte-se Conosco
+                    </h4>
+                    <div class="flex items-center gap-3 mb-4">
+                        <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="WhatsApp Alex Auto Mecânica"
+                           class="w-11 h-11 rounded-xl bg-gray-900 border border-gray-800 hover:bg-green-600 hover:border-green-600 text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/alexautomecanica2018" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Instagram Alex Auto Mecânica"
+                           class="w-11 h-11 rounded-xl bg-gray-900 border border-gray-800 hover:bg-red-600 hover:border-red-600 text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-xs text-gray-500">
+                        WhatsApp: (15) 99783-1983
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-500">
+                <p>&copy; 2026 Alex Auto Mecânica. Todos os direitos reservados.</p>
+                <p>Tatuí - São Paulo</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== 8. BOTÃO FLUTUANTE WHATSAPP ==================== -->
+    <div class="fixed bottom-5 right-5 z-50 flex items-center gap-3 group">
+        <!-- Tooltip -->
+        <span class="hidden sm:inline-block bg-[#111827] text-white text-xs font-semibold px-3.5 py-2 rounded-xl border border-gray-700 shadow-xl opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
+            Fale conosco no WhatsApp
+        </span>
+
+        <!-- Botão Circular -->
+        <a href="https://wa.me/5515997831983?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20na%20Alex%20Auto%20Mec%C3%A2nica." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Fale conosco no WhatsApp"
+           class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-2xl whatsapp-pulse transition-transform duration-300 hover:scale-110">
+            <i class="fa-brands fa-whatsapp text-3xl sm:text-4xl"></i>
+        </a>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Controle do Menu Mobile (Hambúrguer)
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+
+            // Fechar menu mobile ao clicar em qualquer link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 2. Sombra dinâmica no Header ao rolar
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    header.classList.add('shadow-2xl', 'bg-[#0a0a0a]/95');
+                } else {
+                    header.classList.remove('shadow-2xl', 'bg-[#0a0a0a]/95');
+                }
+            });
+
+            // 3. Animação Scroll Reveal com IntersectionObserver
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
